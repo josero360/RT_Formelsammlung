@@ -130,13 +130,45 @@ Jeder Ortskurvenpunkt kann jetzt als Zeiger gedeutet werden.\\
     Der Amplitudengang A($\omega$) wird in doppeltlogarithmischer Darstellung aufgetragen,\\
     der Phasengang y($\omega$)) halblogarithmisch. Gemeinsame Abszisse ist $\omega$.\\
     Bei diesem Beispiel (PT1-Glied) ist deutlich der Tiefpass-Charakter zu erkennen.\\
+    Verkettete Funktionen im Bodediagramm resultieren als Produkt der Einzelübertragungsfunktionen.\\
+    D.h. Verstärkung wird multipliziert und Phasenverschiebung addiert.
+    Das heißt: Sowohl Phasengang (halblogarithmische Darstellung) und Amplitudengan (logarithmische Darstellung) werden graphisch addiert!
 \end{mdframed}
 \subsection{F(s) in Pol- und Nullstellenform}
 \begin{mdframed}[style=exercise]
         Zähler- und Nennerpolynom von F(s) besitzt Nullstellen. Diese sind von $a_v$ und $b_u$ abhängig.\\
         Nullstellen des Zählers sind Nullstellen von F(s)\\
         Nullstellen des Nenners sind Polstellen von F(s)\\
+        Wenn Pole $s_pv$ und Nullstellen $s_nu$ bekannt, kann man F(s) mit dem Faktor Q in faktorisierter Form darstellen.
     \end{mdframed}
+    \begin{center}
+            \includegraphics[width=.35\textwidth]{Figures/PolNullstellenQ.png}
+        \end{center}
+        \begin{mdframed}[style=exercise]
+        Die Stabilität von F(s) kann anhand der Lage der Pole $s_pv$ in der s-Ebene beurteilt werden.\\
+        F(s) ist stabil, wenn alle Pole $s_pv$ in der linken s-Halbebene liegen.
+    \end{mdframed}
+\subsection{Signalflussplanalgebra}
+    Kettenstruktur:\\
+    \begin{center}
+            \includegraphics[width=.45\textwidth]{Figures/Kettenstruktur.png}
+    \end{center}
+    Parallelstruktur:\\
+    \begin{center}
+                    \includegraphics[width=.45\textwidth]{Figures/Parallelstruktur.png}
+    \end{center}
+    Kreisstruktur:\\
+    \begin{center}
+                    \includegraphics[width=.5\textwidth]{Figures/Kreisstruktur.png}
+    \end{center}
+    Verschieben einer Additionsstelle:\\
+    \begin{center}
+                    \includegraphics[width=.45\textwidth]{Figures/Verschiebung einer Additionsstelel.png}
+    \end{center}
+    Verschieben einer Verzweigung:\\
+    \begin{center}
+                    \includegraphics[width=.45\textwidth]{Figures/Verschiebung einer Verzweigung.png}
+    \end{center}
 \section{Grundlagen}
   \subsection{Eigenschaften}
   Eigenschaften LTI-Systeme
