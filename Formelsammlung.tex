@@ -1,0 +1,351 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{physics}
+\usepackage[left=1cm,right=1cm,top=2cm,bottom=1.5cm]{geometry}
+\usepackage{siunitx}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{mhchem}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\graphicspath{./Figures}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage{csquotes}
+\usepackage{trfsigns}
+\usepackage{capt-of}
+\usepackage{listings}
+
+\sisetup{locale=DE}
+\sisetup{per-mode = symbol-or-fraction}
+\sisetup{separate-uncertainty=true}
+\DeclareSIUnit\year{a}
+\DeclareSIUnit\clight{c}
+\mdfdefinestyle{exercise}{
+	backgroundcolor=black!10,roundcorner=8pt,hidealllines=true,nobreak
+}
+
+\begin{document}
+\twocolumn
+\pagestyle{fancy}
+\lhead{Regelungstechnik \\ Formelsammlung}
+\rhead{\today \\ Maximilian, Binninger}
+\section{Grundlagen}
+  \subsection{Eigenschaften}
+  Eigenschaften LTI-Systeme
+  \begin{mdframed}[style=exercise]
+    \begin{enumerate}
+      \item Stabilität\\
+      $\abs{x(t)} < M < \infty \Rightarrow \abs{y(t)} < N < \infty$
+      \item Linearität\\
+      $W\qty{\sum_{k=1}^{N}a_n x_n(t)}=\sum_{n=1}^{N}W\qty{a_n x_n(t)}$
+      \item Zeitinvarianz\\
+      $W\qty{x(t-t_0)} =y(t-t_0)$
+      \item Kausalität\\
+      $t < 0 \Rightarrow x(t)=0 \land y(t)=0$
+    \end{enumerate}
+  \end{mdframed}
+  \subsection{Systemantwort}
+  Die Sprung-/Impulsantwort beschreibt Systemantwort vollständig
+  \begin{mdframed}[style=exercise]
+    \begin{align}
+      y(t) &= \int^{\infty}_{-\infty} a(t-\tau) x'(\tau) \dd{\tau}\\
+      a(t-\tau) &= W\qty{s(t-\tau)}\nonumber
+    \end{align}
+  \end{mdframed}
+  \begin{mdframed}[style=exercise]
+    \begin{align}
+      y(t) &= \int_{-\infty}^{\infty} h(t-\tau) x(\tau) \dd{\tau}\\
+      h(t-\tau) &= W\qty{\delta(t-\tau)}\nonumber
+    \end{align}
+  \end{mdframed}
+  \subsection{Abtasttheorem}
+  Durch die Abtastung wird das Spektrum von $f(t)$ unendlich oft um die Frequenzen $n\cdot \omega_a$ reproduziert.
+  \begin{mdframed}[style=exercise]
+    \begin{align}
+      F_A(\omega) &= \frac{1}{T_A} \sum_{n=-\infty}^{\infty} F(\omega-n\omega_A)\\
+      2\omega_g &\leq \omega_A\nonumber
+    \end{align}
+  \end{mdframed}
+  \section{Systemtechnik}
+  \subsection{Modellbildung}
+  Hinweise zum aufstellen der Differentialgleichung eines Systems:
+  \begin{mdframed}[style=exercise]
+  \begin{enumerate}
+      \item Bestimmmung der Ein- und Ausgangsgrößen\\
+      \item Suche nach dem beschreibenden Gleichgewicht\\
+      \item In der Gleichung dürfen nur Konstanten, sowie die Ein- und Augangsgrößen in beliebiger Ableitung vorkommen\\
+      \item Andere Variablen müssen durch erlaubte Größen ersetzt werden (Dazu können i.a. physikalische Gleichungen benutzt werden)
+
+    \end{enumerate}
+\end{mdframed}
+\subsection{Signalflussplan/Blockschaltbild}
+
+\section{Grundlagen}
+  \subsection{Eigenschaften}
+  Eigenschaften LTI-Systeme
+  \begin{mdframed}[style=exercise]
+    \begin{enumerate}
+      \item Stabilität\\
+      $\abs{x(t)} < M < \infty \Rightarrow \abs{y(t)} < N < \infty$
+      \item Linearität\\
+      $W\qty{\sum_{k=1}^{N}a_n x_n(t)}=\sum_{n=1}^{N}W\qty{a_n x_n(t)}$
+      \item Zeitinvarianz\\
+      $W\qty{x(t-t_0)} =y(t-t_0)$
+      \item Kausalität\\
+      $t < 0 \Rightarrow x(t)=0 \land y(t)=0$
+    \end{enumerate}
+  \end{mdframed}
+  \subsection{Systemantwort}
+  Die Sprung-/Impulsantwort beschreibt Systemantwort vollständig
+  \begin{mdframed}[style=exercise]
+    \begin{align}
+      y(t) &= \int^{\infty}_{-\infty} a(t-\tau) x'(\tau) \dd{\tau}\\
+      a(t-\tau) &= W\qty{s(t-\tau)}\nonumber
+    \end{align}
+  \end{mdframed}
+  \begin{mdframed}[style=exercise]
+    \begin{align}
+      y(t) &= \int_{-\infty}^{\infty} h(t-\tau) x(\tau) \dd{\tau}\\
+      h(t-\tau) &= W\qty{\delta(t-\tau)}\nonumber
+    \end{align}
+  \end{mdframed}
+  \subsection{Abtasttheorem}
+  Durch die Abtastung wird das Spektrum von $f(t)$ unendlich oft um die Frequenzen $n\cdot \omega_a$ reproduziert.
+  \begin{mdframed}[style=exercise]
+    \begin{align}
+      F_A(\omega) &= \frac{1}{T_A} \sum_{n=-\infty}^{\infty} F(\omega-n\omega_A)\\
+      2\omega_g &\leq \omega_A\nonumber
+    \end{align}
+  \end{mdframed}
+\section{Grundlagen}
+  \subsection{Eigenschaften}
+  Eigenschaften LTI-Systeme
+  \begin{mdframed}[style=exercise]
+    \begin{enumerate}
+      \item Stabilität\\
+      $\abs{x(t)} < M < \infty \Rightarrow \abs{y(t)} < N < \infty$
+      \item Linearität\\
+      $W\qty{\sum_{k=1}^{N}a_n x_n(t)}=\sum_{n=1}^{N}W\qty{a_n x_n(t)}$
+      \item Zeitinvarianz\\
+      $W\qty{x(t-t_0)} =y(t-t_0)$
+      \item Kausalität\\
+      $t < 0 \Rightarrow x(t)=0 \land y(t)=0$
+    \end{enumerate}
+  \end{mdframed}
+  \subsection{Systemantwort}
+  Die Sprung-/Impulsantwort beschreibt Systemantwort vollständig
+  \begin{mdframed}[style=exercise]
+    \begin{align}
+      y(t) &= \int^{\infty}_{-\infty} a(t-\tau) x'(\tau) \dd{\tau}\\
+      a(t-\tau) &= W\qty{s(t-\tau)}\nonumber
+    \end{align}
+  \end{mdframed}
+  \begin{mdframed}[style=exercise]
+    \begin{align}
+      y(t) &= \int_{-\infty}^{\infty} h(t-\tau) x(\tau) \dd{\tau}\\
+      h(t-\tau) &= W\qty{\delta(t-\tau)}\nonumber
+    \end{align}
+  \end{mdframed}
+  \subsection{Abtasttheorem}
+  Durch die Abtastung wird das Spektrum von $f(t)$ unendlich oft um die Frequenzen $n\cdot \omega_a$ reproduziert.
+  \begin{mdframed}[style=exercise]
+    \begin{align}
+      F_A(\omega) &= \frac{1}{T_A} \sum_{n=-\infty}^{\infty} F(\omega-n\omega_A)\\
+      2\omega_g &\leq \omega_A\nonumber
+    \end{align}
+  \end{mdframed}
+  \section{Zusammenwirken mehrerer Systeme}
+  \subsection{Fourierreihe}
+  \begin{mdframed}[style=exercise]
+    \begin{align}
+      f(t) &= \sum_{n=0}^{\infty} \qty[a_n \cos(n \omega_0 t) + b_n \sin(n \omega_0 t)]\\
+      a_n &= \frac{2}{T}\int_{-T/2}^{T/2}f(t)\cos(n\omega_0 t)\dd{t}\nonumber\\
+      b_n &= \frac{2}{T}\int_{-T/2}^{T/2}f(t)\sin(n\omega_0 t)\dd{t}\nonumber
+    \end{align}
+  \end{mdframed}
+  \pagebreak
+  \subsection{Fourierreihe, komplex}
+  \begin{mdframed}[style=exercise]
+    \begin{align}
+      f(t) &= \sum_{n=-\infty}^{\infty} c_n e^{jn\omega_0 t}\\
+      c_n &= \frac{1}{T} \int_{-T/2}^{T/2} f(t) e^{-jn\omega_0 t}\dd{t}\nonumber
+    \end{align}
+  \end{mdframed}
+  \subsection{Fourierintegral}
+  \begin{mdframed}[style=exercise]
+    \begin{align}
+      f(t) &= \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{j\omega t} \dd{\omega}\\
+      F(\omega) &= \int_{-\infty}^{\infty} f(t) e^{-j\omega t} \dd{t}
+    \end{align}
+  \end{mdframed}
+  \subsubsection{Eigenschaften}
+  \begin{mdframed}[style=exercise]
+    \begin{enumerate}
+      \item Linearität\\
+      $a f_1(t) + b f_2(t) \laplace a F_1(\omega) + b F_2(\omega)$
+      \item Zeitverschiebung\\
+      $f(t-t_0) \laplace F(\omega)e^{-j\omega t_0}$
+      \item Frequenzverschiebung\\
+      $f(t) e^{\pm j\omega_0 t}\laplace F(\omega\mp \omega_0)$
+      \item Faltung\\
+      $f_1(t)*f_2(t)\laplace F_1(\omega)\cdot F_2(\omega)$\\
+      $f_1(\omega)\cdot f_2(\omega)\laplace \frac{1}{2\pi}F_1(t)*F_2(t)$
+    \end{enumerate}
+  \end{mdframed}
+  \subsection{DFT}
+  \begin{mdframed}[style=exercise]
+    \begin{align}
+      x_n &= \frac{1}{N} \sum_{k=0}^{N-1} X_k\cdot e^{i 2 \pi k n / N}\\
+      X_k &= \sum_{n=0}^{N-1} x_n\cdot e^{-i 2 \pi k n / N}
+    \end{align}
+  \end{mdframed}
+  \subsubsection{FFT}
+  \begin{center}
+    \includegraphics[width=.35\textwidth]{Figures/butterfly}
+    \captionof{figure}{FFT}
+  \end{center}
+  \pagebreak
+  \subsection{Hilbert Transformation}
+  \begin{mdframed}[style=exercise]
+    \begin{align}
+      x_{\mathrm{ht}}(t) &= x_{\mathrm{r}}(t) * h(t)\\
+      H(\omega) &= -j \, \text{sgn}(\omega)
+    \end{align}
+  \end{mdframed}
+  \subsection{z Transformation}
+  \begin{mdframed}[style=exercise]
+    \begin{align}
+      X(z) &= \sum_{n=-\infty}^{\infty} x(n) z^{-n}\\
+      x(n) &= \frac{1}{2\pi j} \oint_c X(Z) z^{n-1}\dd{z}
+    \end{align}
+  \end{mdframed}
+  \subsubsection{Übertragungsfunktion}
+  \begin{mdframed}[style=exercise]
+    \begin{align}
+      H(Z) &=\frac{Y(Z)}{X(z)}=\frac{\sum_{k=0}^q b_k z^{-k}}{\sum_{k=0}^p a_k z^{-k}}=k\frac{\prod_{k=1}^q (1-z_k z^{-1})}{\prod_{k=1}^p (1-p_k z^{-1})}
+    \end{align}
+  \end{mdframed}
+  \subsubsection{Verschiebung im Zeitbereich}
+  \begin{mdframed}[style=exercise]
+    \begin{align}
+      Y(z) &= \sum_{n=0}^{\infty} \qty[x(n-m)] z^{-n} =  z^{-m} X(z)\\
+      Y(z) &= \sum_{n=0}^{\infty}\qty[x(n+m)]z^{-n} = z^{m}\qty[x(t)-\sum_{n=0}^{m-1} x(n) z^{-n}]
+    \end{align}
+  \end{mdframed}
+  \section{Digitale Regler}
+  \subsection{FIR}
+  \begin{mdframed}[style=exercise]
+    \begin{align}
+      y[n] &= \sum_{k=0}^{q} b_k x(n-k)
+    \end{align}
+  \end{mdframed}
+  \begin{center}
+    \includegraphics[width=.4\textwidth]{Figures/fir.png}
+  \end{center}
+  \subsection{IIR}
+  \begin{mdframed}[style=exercise]
+    \begin{align}
+      y[n] &= \sum_{k=0}^{q} b_k x(n-k) - \sum_{k=1}^{p} a_k y(n-k)
+    \end{align}
+  \end{mdframed}
+  \begin{center}
+    \includegraphics[width=.35\textwidth]{Figures/df1.png}
+    \captionof{figure}{Direkt Form 1}
+  \end{center}
+  \begin{center}
+    \includegraphics[width=.35\textwidth]{Figures/df2.png}
+    \captionof{figure}{Direkt Form 2}
+  \end{center}
+  \section{Systembeschreibung im Zustandsraum}
+  \subsection{Allgemein (Mehrgrößensystem MIMO) }
+  \begin{mdframed}[style=exercise]
+    \begin{equation}
+      \dot{\Vec{x}}(t) = A\vec{x}(t) + B\vec{u}(t); \quad x(0) = x_{0}; \\*
+      \vec{y}(t) = C\vec{x}(t) + D\vec{u}(t)
+    \end{equation}
+  \end{mdframed}
+  \begin{center}
+    \includegraphics[width=.5\textwidth]{Figures/Signalflussplan.png}
+    \captionof{figure}{Signalflussplan}
+  \end{center}
+  \begin{mdframed}[style=exercise]
+    \begin{align*}
+      \dot{x}_{1} &= 0*x_{1} +0*x_{2} +0*x_{3} +1*u_{1}+0*u_{2} \\
+      \dot{x}_{2} &= K*x_{1} +0*x_{2} +0*x_{3} +0*u_{1}+0*u_{2} \\
+      \dot{x}_{3} &= 0*x_{1} +0*x_{2} +0*x_{3} +H*J*u_{1}+J*u_{2} \\
+      \dot{y}_{1} &= 0*x_{1} +1+x_{2} +0*x_{3} +0*u_{1}+0*u_{2} \\
+      \dot{y}_{2} &= 0*x_{1} +0*x_{2} +l*x_{3} +0*u_{1}+0*u_{2} \\
+    \end{align*}
+  \end{mdframed}
+
+  \begin{mdframed}[style=exercise]
+    % \begin{align*}
+    % A &= \left[\begin{array}{rrr}
+    % 0&0&0\\
+    % K&0&0\\
+    % 0&0&0\\
+    % \end{array}\right] \
+    % B &= \left[\begin{array}{rr}
+    % 1&0\\
+    % 0&0\\
+    % H*J&J\\
+    % \end{array}\right]
+
+    % C &=\left[\begin{array}{rrr}
+    % 0&1&0\\
+    % 0&0&l\\
+    % \end{array}\right] \
+
+    % D &=\left[\begin{array}{rrr}
+    % 0&0\\
+    % 0&0\\
+    % \end{array}\right]
+
+    % \end{align*}
+    \[
+        \ A = \begin{bmatrix}
+            0&0&0\\
+            K&0&0\\
+            0&0&0
+        \end{bmatrix}
+        C = \begin{bmatrix}
+            0&1&0\\
+            0&0&l\\
+        \end{bmatrix}\]\\
+        \[B = \begin{bmatrix}
+            1&0\\
+            0&0\\
+            H*J&J
+        \end{bmatrix} \
+        D = \begin{bmatrix}
+            0&0\\
+            0&0
+        \end{bmatrix}\]
+
+  \end{mdframed}
+  \subsection{Programmtechnische Umsetzung}
+Zaehler und Nenner der z-Uebertragungsfunktion durch die hoechste Potenz teilen\\
+  \begin{mdframed}[style=exercise]
+    \begin{lstlisting}
+      while(1){
+      waitinterrupt();
+      xout2 = xout1;
+      xout1 = xout;
+      xin2 = xin1;
+      xin1 = xin;
+      input(xin);
+      xa = k*xout2 - j*xin1 + o*xout1;
+      output(xa);
+      }
+    \end{lstlisting}
+  \end{mdframed}
+\end{document}
