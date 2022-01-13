@@ -81,6 +81,7 @@
   \begin{mdframed}[style=exercise]
   \begin{enumerate}
       \item Bestimmmung der Ein- und Ausgangsgrößen
+      \item Julius der kackspast
       \item Suche nach dem beschreibenden Gleichgewicht
       \item In der Gleichung dürfen nur Konstanten, sowie die Ein- und
           Augangsgrorßen in beliebiger Ableitung vorkommen
@@ -224,11 +225,12 @@ Jeder Ortskurvenpunkt kann jetzt als Zeiger gedeutet werden.\\
       &\Rightarrow 1+ K \cdot Q \cdot \frac{\prod_{M=1}^{m}\left(s-s_{\text {Nou }}\right)}{\prod_{v=1}^{n}\left(s-s_{\text {por }}\right)}\\
       &\Rightarrow \frac{\prod_{v=1}^{n}\left(s-s_{\text {pov }}\right)}{\prod_{u=1}^{m}\left(s-s_{\text {Nou }}\right)} \stackrel{!}{=} -K \cdot Q
   \end{align*}
+  Entspricht: $\frac{\texttt{Summe des Abstands aller Polstellen zum gesuchtem Punkt}}{\texttt{Summe des Abstands aller Nullstellen zum gesuchtem Punkt}}$
 
   \subsection{Konstruktion der WOK}
   \begin{mdframed}[style=exercise]
       \begin{enumerate}
-        \item Alle n Äste der WOK beginnen mit K=0 in den n Polen $s_pov$ des offenen Regelkreises.\\
+        \item Alle n Äste der WOK beginnen mit K=0 in den n Polen $s_pov$ des offenen Regelkreises.
         \item m Äste der WOK enden für K $\rightarrow \pm \infty$
         \item n -m Äste der WOK enden für K $\rightarrow \pm \infty$ im Unendlichen
         \item Die n-m ins Unendliche strebende Äste der WOK haben Asymptoten,die\\
@@ -236,8 +238,7 @@ Jeder Ortskurvenpunkt kann jetzt als Zeiger gedeutet werden.\\
             \[S_{w}=\frac{\sum_{v=1}^{n} s_{pov}-\sum_{u=1}^{m} s_{_{Nop}}}{n-m}\]
             beginnen und die dabei\\
             b) mit der reellen Achse die Winkel\\
-            $\varphi_{k}=\frac{(2 k-1) \cdot 180^{\circ}}{n-m}$ für KQ > 0 bzw.
-            $\varphi_{k}=\frac{(2 k-2) \cdot 180^{\circ}}{n-m}$ für KQ < 0 \\
+            $\varphi_{k}=\frac{(2 k-1) \cdot 180^{\circ}}{n-m}$ für KQ > 0 bzw.\\
             mit k = 1,2,3,\dots,n-m
         \item Die Punkte der WOk liegen entweder auf der reelen Achse, oder symmetrisch zur reelen Achse
         \item Ein Punkt s auf der reellen Achse ist dann ein Punkt der WOK, wenn sich bei KQ > 0 (KQ<0)
@@ -275,149 +276,60 @@ Achtung: WOK ist nicht anwendbar, wenn es sich um nicht rationale Übertragungsf
     Zur Auswertung des Nyquist-Kriteriums im Bode Diagramm, spaltet man die Ortskurve nach Betrag
     A = |$F_0 (jw)$ und Phase $\varphi$ = $F_0(jw)$\\
     \includegraphics[width=.5\textwidth]{Figures/Nyquist_Bode.png}
-    Falls die Bedingung nicht funktioniert, wird die allgemene Formulierung verwendet:\\
+    Falls die Bedingung nicht funktioniert, wird die allgemeine Formulierung verwendet:\\
     \includegraphics[width=.5\textwidth]{Figures/Allgemein_Nyquist.png}
+    \begin{mdframed}[style=exercise]
+        Der geschlossene Regelkreis ist stabil, wenn der Fahrstrahl von $P_{krit}$ = -1 +j0
+        zu $F_0 (jw)$ für wachsendes $\omega$ von +0 bis +$\infty$ eine Winkeländerung
+        $^{\omega=+\infty}_{\omega=+0} \Delta \phi _{soll} = n_r \cdot$ 180° $+n_a \cdot$ 90°
+        erfährt.\\
+        $n_r$: Anzahl der Pole rechts der imaginären Achse\\
+        $n_a$: Anzahl der Pole auf der imaginären Achse\\
+    \end{mdframed}
+    Phasenrad/Phasenreserve:
+    \begin{align*}
+        &\text{Für befriedigendes Verhalten bei Störungen gilt: }\varphi _R \geq \text{30°}\\
+        &\text{Für gutes Verhalten (überschwingungsarm) gilt: }\varphi _R \approx \text{ 60°}\\
+        &\text{Für gutes Verhalten (überschwingungsfrei) gilt: }\varphi _R \geq \text{80°}\\
+    \end{align*}
 
-\section{Grundlagen}
-  \subsection{Eigenschaften}
-  Eigenschaften LTI-Systeme die Ortskurve von $F_-1 (j\omega)$ durch den kritischen
-  Punkt ($P_{krit} = -2+j0$)der komplexen $F_0$-Ebene
-  \begin{mdframed}[style=exercise]
-    \begin{enumerate}
-      \item Stabilität\\
-      $\abs{x(t)} < M < \infty \Rightarrow \abs{y(t)} < N < \infty$
-      \item Linearität\\
-      $W\qty{\sum_{k=1}^{N}a_n x_n(t)}=\sum_{n=1}^{N}W\qty{a_n x_n(t)}$
-      \item Zeitinvarianz\\
-      $W\qty{x(t-t_0)} =y(t-t_0)$
-      \item Kausalität\\
-      $t < 0 \Rightarrow x(t)=0 \land y(t)=0$
-    \end{enumerate}
-  \end{mdframed}
-  \subsection{Systemantwort}
-  Die Sprung-/Impulsantwort beschreibt Systemantwort vollständig
-  \begin{mdframed}[style=exercise]
-    \begin{align}
-      y(t) &= \int^{\infty}_{-\infty} a(t-\tau) x'(\tau) \dd{\tau}\\
-      a(t-\tau) &= W\qty{s(t-\tau)}\nonumber
-    \end{align}
-  \end{mdframed}
-  \begin{mdframed}[style=exercise]
-    \begin{align}
-      y(t) &= \int_{-\infty}^{\infty} h(t-\tau) x(\tau) \dd{\tau}\\
-      h(t-\tau) &= W\qty{\delta(t-\tau)}\nonumber
-    \end{align}
-  \end{mdframed}
-  \subsection{Abtasttheorem}
-  Durch die Abtastung wird das Spektrum von $f(t)$ unendlich oft um die Frequenzen $n\cdot \omega_a$ reproduziert.
-  \begin{mdframed}[style=exercise]
-    \begin{align}
-      F_A(\omega) &= \frac{1}{T_A} \sum_{n=-\infty}^{\infty} F(\omega-n\omega_A)\\
-      2\omega_g &\leq \omega_A\nonumber
-    \end{align}
-  \end{mdframed}
-  \section{Zusammenwirken mehrerer Systeme}
-  \subsection{Fourierreihe}
-  \begin{mdframed}[style=exercise]
-    \begin{align}
-      f(t) &= \sum_{n=0}^{\infty} \qty[a_n \cos(n \omega_0 t) + b_n \sin(n \omega_0 t)]\\
-      a_n &= \frac{2}{T}\int_{-T/2}^{T/2}f(t)\cos(n\omega_0 t)\dd{t}\nonumber\\
-      b_n &= \frac{2}{T}\int_{-T/2}^{T/2}f(t)\sin(n\omega_0 t)\dd{t}\nonumber
-    \end{align}
-  \end{mdframed}
-  \pagebreak
-  \subsection{Fourierreihe, komplex}
-  \begin{mdframed}[style=exercise]
-    \begin{align}
-      f(t) &= \sum_{n=-\infty}^{\infty} c_n e^{jn\omega_0 t}\\
-      c_n &= \frac{1}{T} \int_{-T/2}^{T/2} f(t) e^{-jn\omega_0 t}\dd{t}\nonumber
-    \end{align}
-  \end{mdframed}
-  \subsection{Fourierintegral}
-  \begin{mdframed}[style=exercise]
-    \begin{align}
-      f(t) &= \frac{1}{2\pi} \int_{-\infty}^{\infty} F(\omega) e^{j\omega t} \dd{\omega}\\
-      F(\omega) &= \int_{-\infty}^{\infty} f(t) e^{-j\omega t} \dd{t}
-    \end{align}
-  \end{mdframed}
-  \subsubsection{Eigenschaften}
-  \begin{mdframed}[style=exercise]
-    \begin{enumerate}
-      \item Linearität\\
-      $a f_1(t) + b f_2(t) \laplace a F_1(\omega) + b F_2(\omega)$
-      \item Zeitverschiebung\\
-      $f(t-t_0) \laplace F(\omega)e^{-j\omega t_0}$
-      \item Frequenzverschiebung\\
-      $f(t) e^{\pm j\omega_0 t}\laplace F(\omega\mp \omega_0)$
-      \item Faltung\\
-      $f_1(t)*f_2(t)\laplace F_1(\omega)\cdot F_2(\omega)$\\
-      $f_1(\omega)\cdot f_2(\omega)\laplace \frac{1}{2\pi}F_1(t)*F_2(t)$
-    \end{enumerate}
-  \end{mdframed}
-  \subsection{DFT}
-  \begin{mdframed}[style=exercise]
-    \begin{align}
-      x_n &= \frac{1}{N} \sum_{k=0}^{N-1} X_k\cdot e^{i 2 \pi k n / N}\\
-      X_k &= \sum_{n=0}^{N-1} x_n\cdot e^{-i 2 \pi k n / N}
-    \end{align}
-  \end{mdframed}
-  \subsubsection{FFT}
-  \begin{center}
-    \includegraphics[width=.35\textwidth]{Figures/butterfly}
-    \captionof{figure}{FFT}
-  \end{center}
-  \pagebreak
-  \subsection{Hilbert Transformation}
-  \begin{mdframed}[style=exercise]
-    \begin{align}
-      x_{\mathrm{ht}}(t) &= x_{\mathrm{r}}(t) * h(t)\\
-      H(\omega) &= -j \, \text{sgn}(\omega)
-    \end{align}
-  \end{mdframed}
-  \subsection{z Transformation}
-  \begin{mdframed}[style=exercise]
-    \begin{align}
-      X(z) &= \sum_{n=-\infty}^{\infty} x(n) z^{-n}\\
-      x(n) &= \frac{1}{2\pi j} \oint_c X(Z) z^{n-1}\dd{z}
-    \end{align}
-  \end{mdframed}
-  \subsubsection{Übertragungsfunktion}
-  \begin{mdframed}[style=exercise]
-    \begin{align}
-      H(Z) &=\frac{Y(Z)}{X(z)}=\frac{\sum_{k=0}^q b_k z^{-k}}{\sum_{k=0}^p a_k z^{-k}}=k\frac{\prod_{k=1}^q (1-z_k z^{-1})}{\prod_{k=1}^p (1-p_k z^{-1})}
-    \end{align}
-  \end{mdframed}
-  \subsubsection{Verschiebung im Zeitbereich}
-  \begin{mdframed}[style=exercise]
-    \begin{align}
-      Y(z) &= \sum_{n=0}^{\infty} \qty[x(n-m)] z^{-n} =  z^{-m} X(z)\\
-      Y(z) &= \sum_{n=0}^{\infty}\qty[x(n+m)]z^{-n} = z^{m}\qty[x(t)-\sum_{n=0}^{m-1} x(n) z^{-n}]
-    \end{align}
-  \end{mdframed}
-  \section{Digitale Regler}
-  \subsection{FIR}
-  \begin{mdframed}[style=exercise]
-    \begin{align}
-      y[n] &= \sum_{k=0}^{q} b_k x(n-k)
-    \end{align}
-  \end{mdframed}
-  \begin{center}
-    \includegraphics[width=.4\textwidth]{Figures/fir.png}
-  \end{center}
-  \subsection{IIR}
-  \begin{mdframed}[style=exercise]
-    \begin{align}
-      y[n] &= \sum_{k=0}^{q} b_k x(n-k) - \sum_{k=1}^{p} a_k y(n-k)
-    \end{align}
-  \end{mdframed}
-  \begin{center}
-    \includegraphics[width=.35\textwidth]{Figures/df1.png}
-    \captionof{figure}{Direkt Form 1}
-  \end{center}
-  \begin{center}
-    \includegraphics[width=.35\textwidth]{Figures/df2.png}
-    \captionof{figure}{Direkt Form 2}
-  \end{center}
+    \subsection{Einstellregler Ziegler/Nichols}
+    \subsection{Maßnahmen zur Verbesserung des Regelkreisverhaltens und Erweiterungen der Regelkreisstruktur}
+    Störgrößenaufschaltung:
+    \begin{mdframed}[style=exercise]
+        Falls Angriffsort einer Störgröße bekannt,kann man wie im Bild kompensieren.\\
+        Vorteil: einfacher Reglerentwurf, deutlich schnellere Ausregelung.
+    \end{mdframed}
+    \includegraphics[width=.45\textwidth]{Figures/Stoergoesenschaltung.png}\\
+    Vorsteuerung:
+    \begin{mdframed}[style=exercise]
+        Geeignet, falls kein Kompromiss für gutes Stör und Folgeverhalten.\\
+        Regler ist auf gutes Störverhalten ausgelegt. Mit $F_{Rv}$ wird ein schnelles Folgen
+        auf Führungssignale w(t) erreicht.
+    \end{mdframed}
+    \includegraphics[width=.45\textwidth]{Figures/Vorsteuerung.png}\\
+    Kaskadenregelung:
+    \begin{mdframed}[style=exercise]
+        Ineinander geschachtelte Regelkreise (innere Regelkreise „schneller“). „Innere“
+        Störungen können bereits innen ausgeregelt werden. Können von Innen nach Außen in Betrieb genommen werden.
+    \end{mdframed}
+    \includegraphics[width=.45\textwidth]{Figures/Kaskadenregelung.png}\\
+\section{Digitale Regler}
+    \subsection{Allgemeines}
+    \subsection{z-Transformation}
+    Wert der bei t = k $\cdot T_A$ ausgegeben wird, wird bei t = (k-1) $\cdot T_A$ eingelesen.
+    (Verzögerung um einen Abtastschritt):\\
+    \includegraphics[width=.45\textwidth]{Figures/zTrans.png}
+
+    Bei der z-Transformation entspricht $e^{-s \cdot TA}$ der
+    Laplace-Transformation dem Ausdruck
+    $z^{-1}$. Bzw z $\hat{=}$ $e^{s \cdot TA}$
+
+
+
+
+
+
   \section{Systembeschreibung im Zustandsraum}
   \subsection{Allgemein (Mehrgrößensystem MIMO) }
   \begin{mdframed}[style=exercise]
