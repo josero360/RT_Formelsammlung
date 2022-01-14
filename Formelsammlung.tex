@@ -44,21 +44,28 @@
         x_{a}(t)=x_{a,AP}+\Delta x_{a}(t) \approx x_{a,AP}+\sum\left(\frac{\partial f}
         {\partial x_{ei,Ap}} \cdot \Delta x_{ei}(t)\right)
     \end{align*}
-    Mechanisches Modell:
-    \begin{center}
-        $F_G$ = m $\cdot$ g\\
-    \end{center}
+    Kräftegleichungen:
+    \begin{mdframed}[style=exercise]
+        Federkraft: $F_F$ = $k_F \cdot$x\\
+        Dämpfkraft: $F_D$ = $k_D \cdot$v = $k_D \cdot \dot{x}$\\
+        Trägheitskraft: $F_{Tr}$ = m$\cdot$a = m$\cdot \ddot{x}$\\
+        Erdanziehungkraft: $F_G$ = m$\cdot$g
+    \end{mdframed}
+    Momentgleichungen:
+    \begin{mdframed}[style=exercise]
+        Widerstandsmoment: $M_w$ = $k_D \cdot \omega$\\
+        Trägheitsmoment: $M_{TR}$ = J$\cdot \dot{\omega}$
+    \end{mdframed}
+    Spannungsgleichung:
+    \begin{mdframed}[style=exercise]
+        U = L$\cdot \frac{di}{dt}$+i$\cdot$R+$\frac{1}{C} \cdot \int_{} i$
+    \end{mdframed}
     Für kleine Winkel $\alpha$ gilt: sin($\alpha$) = $\alpha$\\
-        rollende Kugel:\\
-        \begin{center}
-        $m_{eff} = M_{Kugel} + m_{virtuell Rotation}$\\
-        v = r $\cdot \omega$\\
-        M = J $\cdot \dot{\omega}$\\
-        \end{center}
     Rotation in Flüssigkeit:
         \begin{center}
             $M=M_{Träg}+M_{Brems}=J \cdot \dot{\omega} +k_{Flüssigkeit} \cdot \omega$
         \end{center}
+    Partialbruchzerlegung (siehe Papula s.157ff)
 
 
 
