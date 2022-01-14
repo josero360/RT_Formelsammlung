@@ -39,49 +39,44 @@
 \lhead{Regelungstechnik \\ Formelsammlung}
 \rhead{\today \\ Maximilian, Binninger}
 \section{Grundlagen}
-  \subsection{Eigenschaften}
-  Eigenschaften LTI-Systeme
-  \begin{mdframed}[style=exercise]
-    \begin{enumerate}
-      \item Stabilität\\
-      $\abs{x(t)} < M < \infty \Rightarrow \abs{y(t)} < N < \infty$
-      \item Linearität\\
-          $W\qty{\sum_{k=1}^{N}a_n x_n(t)}=\sum_{n=1}^{N}W\qty{a_n x_n(t)}$
-      \item Zeitinvarianz\\
-      $W\qty{x(t-t_0)} =y(t-t_0)$
-      \item Kausalität\\
-      $t < 0 \Rightarrow x(t)=0 \land y(t)=0$
-    \end{enumerate}
-  \end{mdframed}
-  \subsection{Systemantwort}
-  Die Sprung-/Impulsantwort beschreibt Systemantwort vollständig
-  \begin{mdframed}[style=exercise]
-    \begin{align}
-      y(t) &= \int^{\infty}_{-\infty} a(t-\tau) x'(\tau) \dd{\tau}\\
-      a(t-\tau) &= W\qty{s(t-\tau)}\nonumber
-    \end{align}
-  \end{mdframed}
-  \begin{mdframed}[style=exercise]
-    \begin{align}
-      y(t) &= \int_{-\infty}^{\infty} h(t-\tau) x(\tau) \dd{\tau}\\
-      h(t-\tau) &= W\qty{\delta(t-\tau)}\nonumber
-    \end{align}
-  \end{mdframed}
-  \subsection{Abtasttheorem}
-  Durch die Abtastung wird das Spektrum von $f(t)$ unendlich oft um die Frequenzen $n\cdot \omega_a$ reproduziert.
-  \begin{mdframed}[style=exercise]
-    \begin{align}
-      F_A(\omega) &= \frac{1}{T_A} \sum_{n=-\infty}^{\infty} F(\omega-n\omega_A)\\
-      2\omega_g &\leq \omega_A\nonumber
-    \end{align}
-  \end{mdframed}
-  \section{Systemtechnik}
+    Linearisierung um Arbeitspunkt:
+    \begin{align*}
+        x_{a}(t)=x_{a,AP}+\Delta x_{a}(t) \approx x_{a,AP}+\sum\left(\frac{\partial f}
+        {\partial x_{ei,Ap}} \cdot \Delta x_{ei}(t)\right)
+    \end{align*}
+    Mechanisches Modell:
+    \begin{center}
+        $F_G$ = m $\cdot$ g\\
+    \end{center}
+    Für kleine Winkel $\alpha$ gilt: sin($\alpha$) = $\alpha$\\
+        rollende Kugel:\\
+        \begin{center}
+        $m_{eff} = M_{Kugel} + m_{virtuell Rotation}$\\
+        v = r $\cdot \omega$\\
+        M = J $\cdot \dot{\omega}$\\
+        \end{center}
+    Rotation in Flüssigkeit:
+        \begin{center}
+            $M=M_{Träg}+M_{Brems}=J \cdot \dot{\omega} +k_{Flüssigkeit} \cdot \omega$
+        \end{center}
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Systemtechnik}
   \subsection{Modellbildung}
   Hinweise zum aufstellen der Differentialgleichung eines Systems:
   \begin{mdframed}[style=exercise]
   \begin{enumerate}
       \item Bestimmmung der Ein- und Ausgangsgrößen
-      \item Julius der kackspast
       \item Suche nach dem beschreibenden Gleichgewicht
       \item In der Gleichung dürfen nur Konstanten, sowie die Ein- und
           Augangsgrorßen in beliebiger Ableitung vorkommen
@@ -103,9 +98,10 @@
             \includegraphics[width=.30\textwidth]{Figures/Signalflussplan12.png}
         \end{center}
         Erzeugung des Signalflussplans eines Systems mit der Dgl.:
-        \begin{center}
-                \includegraphics[width=.45\textwidth]{Figures/DGLSF.png}
-        \end{center}
+        \begin{align*}
+            &a_{n} \overset{(n)}{x}_{a}+\ldots+a_{2} \ddot{x}_{a}+a_{1} \dot{x}_{a}+a_{0} x_{a}\\
+            = &b_{n} \overset{(n)}{x}_{e}+\ldots+b_{2} \ddot{x}+b_{1} \dot{x}_{e}+b_{0} x_{e}
+        \end{align*}
                 Signalflussplan kann allgemein gezeichnet werden:\\
         \includegraphics[width=.5\textwidth]{Figures/SFmitDGL.png}
 \subsection{Stabilität}
@@ -288,6 +284,8 @@ Achtung: WOK ist nicht anwendbar, wenn es sich um nicht rationale Übertragungsf
     \end{mdframed}
     Phasenrad/Phasenreserve:
     \begin{align*}
+        &\text{Aus Bodediagramm ablesen: Bei Verstärkung von 1,}\\
+        &\text{Winkeln von -180° nach oben rechnen}\\
         &\text{Für befriedigendes Verhalten bei Störungen gilt: }\varphi _R \geq \text{30°}\\
         &\text{Für gutes Verhalten (überschwingungsarm) gilt: }\varphi _R \approx \text{ 60°}\\
         &\text{Für gutes Verhalten (überschwingungsfrei) gilt: }\varphi _R \geq \text{80°}\\
@@ -323,13 +321,25 @@ Achtung: WOK ist nicht anwendbar, wenn es sich um nicht rationale Übertragungsf
 
     Bei der z-Transformation entspricht $e^{-s \cdot TA}$ der
     Laplace-Transformation dem Ausdruck
-    $z^{-1}$. Bzw z $\hat{=}$ $e^{s \cdot TA}$
-
-
-
-
-
-
+    $z^{-1}$. Bzw z $\hat{=}$ $e^{s \cdot TA}$\\
+    Transformation vom s-Bereich in den z-Bereich:
+    \begin{center}
+    s $\hat{=}$ $e^{s \cdot TA}$
+    \end{center}
+    Vorwärtsdifferenzenquotient\\
+    \begin{align*}
+    \text{s } \hat{=} \frac{z-1}{T_A}\\
+    \end{align*}
+    $\Rightarrow$
+    Der digitale Regler kann folgend berechnet werden:\\
+    \begin{center}
+    F(z) = $F(z)|_{s= \frac {z-1}{T_A}}$\\
+    \end{center}
+    Tustinsche Formel
+    \begin{align*}
+        s \hat{=} \frac{2}{T_A} \cdot \frac{z-1}{z+1}
+    \end{align*}
+    Rückwärtsdifferenzenquotient
   \section{Systembeschreibung im Zustandsraum}
   \subsection{Allgemein (Mehrgrößensystem MIMO) }
   \begin{mdframed}[style=exercise]
@@ -351,7 +361,6 @@ Achtung: WOK ist nicht anwendbar, wenn es sich um nicht rationale Übertragungsf
       \dot{y}_{2} &= 0*x_{1} +0*x_{2} +l*x_{3} +0*u_{1}+0*u_{2} \\
     \end{align*}
   \end{mdframed}
-
   \begin{mdframed}[style=exercise]
    \[
         \ A = \begin{bmatrix}
@@ -374,6 +383,9 @@ Achtung: WOK ist nicht anwendbar, wenn es sich um nicht rationale Übertragungsf
         \end{bmatrix}\]
 
   \end{mdframed}
+  Polfestlegung durch vollständige Zustandsrückführung\\
+  \includegraphics[width=.5\textwidth]{Figures/Polfestlegung.png}
+  Durch die freie Wahl von K können alle n Pole des Systems beliebig platziert werden.
   \subsection{Programmtechnische Umsetzung}
 Zaehler und Nenner der z-Uebertragungsfunktion durch die hoechste Potenz teilen\\
   \begin{mdframed}[style=exercise]
