@@ -71,7 +71,7 @@
 Linearisierung um Arbeitspunkt:
 \begin{align*}
 	x_{a}(t)=x_{a,AP}+\Delta x_{a}(t) \approx x_{a,AP}+\sum\left(\frac{\partial f}
-	{\partial x_{ei,Ap}} \cdot \Delta x_{ei}(t)\right)
+	{\partial x_{e,Ap}} \cdot \Delta x_{e}(t)\right)
 \end{align*}
 Kräftegleichungen:
 \begin{mdframed}[style=exercise]
@@ -137,7 +137,7 @@ Erzeugung des Signalflussplans eines Systems mit der DGL.:
 	= & b_{n} \overset{(n)}{x}_{e}+\ldots+b_{2} \ddot{x}+b_{1} \dot{x}_{e}+b_{0} x_{e}
 \end{align*}
 
-Signalflussplan kann allgemein gezeichnet werden:
+Signalflussplan kann allgemein gezeichnet werden: (nötig, falls eine Ableitung von $x_e$ existiert)
 
 \includegraphics[width=0.9\columnwidth]{Figures/SFmitDGL.png}
 
@@ -299,7 +299,8 @@ Daraus folgt:
 	 & \Rightarrow \frac{\prod_{v=1}^{n}\left(s-s_{\text {pov }}\right)}{\prod_{u=1}^{m}\left(s-s_{\text {Nou }}\right)} \stackrel{!}{=} -K \cdot Q
 \end{align*}
 
-Entspricht: $\frac{\texttt{Summe des Abstands aller Polstellen zum gesuchtem Punkt}}{\texttt{Summe des Abstands aller Nullstellen zum gesuchtem Punkt}}$
+Entspricht: $\frac{\texttt{Multiplikation aller PS zum gesuchten Punkt}}
+{\texttt{Multiplikation aller NS zum gesuchten Punkt}}$
 
 \subsection{Konstruktion der WOK}
 \begin{mdframed}[style=exercise]
@@ -395,6 +396,8 @@ Phasenrad/Phasenreserve:
 
 \subsection{Einstellregler Ziegler/Nichols}
 \subsubsection{Maßnahmen zur Verbesserung des Regelkreisverhaltens und Erweiterungen der Regelkreisstruktur}
+\includegraphics[width=0.9\columnwidth]{Figures/ZieglerNich.png}\\
+
 
 \begin{mdframed}[style=exercise, frametitle=Störgrößenaufschaltung:]
 	Falls Angriffsort einer Störgröße bekannt,kann man wie im Bild kompensieren.\\
