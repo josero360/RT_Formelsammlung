@@ -256,7 +256,7 @@ Bodediagramm Darstellung:
 \section{Zusammenwirken mehrerer Systeme}
 \subsection{Regelkreis}
 \begin{mdframed}[style=exercise,frametitle=Anforderungen:]
-    \begin{itemize}[leftmargin=*]
+	\begin{itemize}[leftmargin=*]
 		\item Stabilität: Regelkreis muss stabiles Verhalten zeigen (gilt
 		      auch für instabile Systeme)
 		\item Gutes Führungsverhalten: Die Differenz zw. Sollwert w(t) und
@@ -313,7 +313,7 @@ Entspricht: $\frac{\texttt{Multiplikation aller PS zum gesuchten Punkt}}
 
 \subsection{Konstruktion der WOK}
 \begin{mdframed}[style=exercise]
-    \begin{enumerate}[leftmargin=*]
+	\begin{enumerate}[leftmargin=*]
 		\item Alle n Äste der WOK beginnen mit K=0 in den n Polen $s_pov$ des offenen Regelkreises.
 		\item m Äste der WOK enden für K $\rightarrow \pm \infty$
 		\item n -m Äste der WOK enden für K $\rightarrow \pm \infty$ im Unendlichen
@@ -397,9 +397,9 @@ Falls die Bedingung nicht funktioniert, wird die allgemeine Formulierung verwend
 \subsubsection{Phasenrad/Phasenreserve:}
 
 \begin{itemize}[leftmargin=*]
-    \item[] Aus Bodediagramm ablesen: Bei Verstärkung von 1
-    \item[] Winkeln von -180° nach oben rechnen
-    \item befriedigendes Verhalten bei Störungen gilt: $\varphi _R \geq 30\circ$
+	\item[] Aus Bodediagramm ablesen: Bei Verstärkung von 1
+	\item[] Winkeln von -180° nach oben rechnen
+	\item befriedigendes Verhalten bei Störungen gilt: $\varphi _R \geq 30\circ$
 	\item gutes Verhalten (überschwingungsarm) gilt: $\varphi _R \approx  60\circ$
 	\item gutes Verhalten (überschwingungsfrei) gilt: $\varphi _R \geq 80^\circ$
 \end{itemize}
@@ -516,17 +516,37 @@ Rückwärts-Differenzen-quotient
 		\end{bmatrix}
 	\]
 
-    Eigenwerte einer Matrix bestimmen (z.B. A):\\
-    det(A - sI) $\stackrel{!}{=}$ 0
+	Eigenwerte einer Matrix bestimmen (z.B. A):
+    \[
+        \operatorname{det}(A - sI) \overset{!}{=} 0
+    \]
 \end{mdframed}
 
-Polfestlegung durch vollständige Zustandsrückführung
+\subsubsection{Polfestlegung durch vollständige Zustandsrückführung}
 
-\includegraphics[width=0.9\columnwidth]{Figures/Polfestlegung.png}
+\centering
+\includegraphics[width=0.8\columnwidth]{Figures/Polfestlegung.png}
 
-Durch die freie Wahl von K können alle n Pole des Systems beliebig platziert werden.\\
-Rückführungsverstärkung: von jedem X einen Pfad zur größten Ableitung mit Verstärkung K zeichnen.
-Über neue Matrix und deren determinante kann dann die Reglerverstärkung bestimmt werden.
+\raggedright
+Durch die freie Wahl von K können alle n Pole des Systems beliebig platziert
+werden.
+
+Rückführungsverstärkung: von jedem X einen Pfad zur größten Ableitung
+mit Verstärkung K zeichnen. Über neue Matrix und deren determinante kann dann
+die Reglerverstärkung bestimmt werden.
+
+\begin{mdframed}
+\[
+	A = \begin{bmatrix}
+		B(a-K)
+    \end{bmatrix}
+\]
+\begin{center}
+    \footnotesize a ist vorfaktor der $\vec{x}(t)$, siehe oben.
+\end{center}
+\end{mdframed}
+
+dann mit der Determinante der Matrix A: K bestimmen mit den gegebenen Polen
 
 \subsection{Programmtechnische Umsetzung}
 Zähler und Nenner der z-Übertragungsfunktion durch die höchste Potenz teilen
@@ -534,7 +554,7 @@ Zähler und Nenner der z-Übertragungsfunktion durch die höchste Potenz teilen
 \begin{lstlisting}[language=Matlab]
   while(1)
   {
-      waitinterrupt(); //Abtastzeit warten
+      waitinterrupt(T_A); //Abtastzeit warten
       xout2 = xout1;
       xout1 = xout;
       xin2 = xin1;
