@@ -8,7 +8,7 @@
 \usepackage{graphicx}
 \usepackage{lmodern}
 \usepackage{physics}
-\usepackage[left=2cm,right=1cm,top=2cm,bottom=1.5cm]{geometry}
+\usepackage[left=2cm,right=1cm,top=2cm,bottom=1.5cm,twoside]{geometry}
 \usepackage{siunitx}
 \usepackage{fancyhdr}
 \usepackage{enumerate}
@@ -24,6 +24,10 @@
 \usepackage{capt-of}
 \usepackage{listings}
 \setlength{\headheight}{23pt}
+\setlength{\headsep}{10pt}
+\setlength{\marginparwidth}{0pt}
+% \setlength{\parindent}{0pt}
+\usepackage{enumitem}
 
 \sisetup{locale=DE}
 \sisetup{per-mode = symbol-or-fraction}
@@ -64,8 +68,9 @@
 \begin{document}
 \twocolumn
 \pagestyle{fancy}
-\lhead{Regelungstechnik \\ Formelsammlung}
-\rhead{\today \\ Maximilian, Binninger}
+\lhead{Formelsammlung}
+\rhead{Maximilian Binninger}
+\cfoot{\vspace{-20pt}\thepage}
 
 \section{Grundlagen}
 Linearisierung um Arbeitspunkt:
@@ -168,7 +173,7 @@ Bodediagramm Darstellung:
 	\includegraphics[width=0.96\columnwidth]{Figures/Bodediagramm.png}
 \end{center}
 \begin{mdframed}[style=exercise]
-	Der Amplitudengang A($\omega$) wird in doppelt-logarithmischer Darstellung
+	Der Amplitudengang A($\omega$) wird in doppelt logarithmischer Darstellung
 	aufgetragen,\\ der Phasengang y($\omega$)) halblogarithmisch. Gemeinsame
 	Abszisse ist $\omega$.
 
@@ -193,9 +198,10 @@ Bodediagramm Darstellung:
 	Faktor Q in faktorisierter Form darstellen.
 \end{mdframed}
 
-\begin{center}
-	\includegraphics[width=0.96\columnwidth]{Figures/PolNullstellenQ.png}
-\end{center}
+\[
+	F(s)=Q \cdot \frac{\prod_{\mu=1}^{m}\left(s-s_{N \mu}\right)}{\prod_{v=1}^{n}\left(s-s_{P V}\right)}
+	\qquad \texttt{mit } Q = \frac{b_m}{a_n}
+\]
 
 \begin{mdframed}[style=exercise]
 	Die Stabilität von $F(s)$ kann anhand der Lage der Pole $s_pv$ in der s-Ebene
@@ -220,36 +226,37 @@ Bodediagramm Darstellung:
 \end{mdframed}
 
 \subsection{Signalflussplan Algebra}
+\begin{itemize}[leftmargin=*]
+	\item Kettenstruktur:
+	      \begin{center}
+		      \includegraphics[width=0.96\columnwidth]{Figures/Kettenstruktur.png}
+	      \end{center}
 
-Kettenstruktur:
-\begin{center}
-	\includegraphics[width=0.96\columnwidth]{Figures/Kettenstruktur.png}
-\end{center}
+	\item Parallelstruktur:
+	      \begin{center}
+		      \includegraphics[width=0.96\columnwidth]{Figures/Parallelstruktur.png}
+	      \end{center}
 
-Parallelstruktur:
-\begin{center}
-	\includegraphics[width=0.96\columnwidth]{Figures/Parallelstruktur.png}
-\end{center}
+	\item Kreisstruktur:
+	      \begin{center}
+		      \includegraphics[width=0.96\columnwidth]{Figures/Kreisstruktur.png}
+	      \end{center}
 
-Kreisstruktur:
-\begin{center}
-	\includegraphics[width=0.96\columnwidth]{Figures/Kreisstruktur.png}
-\end{center}
+	\item Verschieben einer Additionsstelle:
+	      \begin{center}
+		      \includegraphics[width=0.9\columnwidth]{Figures/Verschiebung einer Additionsstelel.png}
+	      \end{center}
 
-Verschieben einer Additionsstelle:
-\begin{center}
-	\includegraphics[width=0.96\columnwidth]{Figures/Verschiebung einer Additionsstelel.png}
-\end{center}
-
-Verschieben einer Verzweigung:
-\begin{center}
-	\includegraphics[width=0.96\columnwidth]{Figures/Verschiebung einer Verzweigung.png}
-\end{center}
+	\item Verschieben einer Verzweigung:
+	      \begin{center}
+		      \includegraphics[width=0.9\columnwidth]{Figures/Verschiebung einer Verzweigung.png}
+	      \end{center}
+\end{itemize}
 
 \section{Zusammenwirken mehrerer Systeme}
 \subsection{Regelkreis}
 \begin{mdframed}[style=exercise,frametitle=Anforderungen:]
-	\begin{itemize}
+	\begin{itemize}[leftmargin=*]
 		\item Stabilität: Regelkreis muss stabiles Verhalten zeigen (gilt
 		      auch für instabile Systeme)
 		\item Gutes Führungsverhalten: Die Differenz zw. Sollwert w(t) und
@@ -292,7 +299,7 @@ Grundstruktur des einschleifigen Regelkreises:
 
 Für eine Polstele, muss der Nenner von $F_w (s)$ Null werden:
 \[
-    \dfrac{F_R (s) \cdot F_S (s)}{1+F_o (s)} \Rightarrow 1+F_o (s) \stackrel{!}{=}0
+	\dfrac{F_R (s) \cdot F_S (s)}{1+F_o (s)} \Rightarrow 1+F_o (s) \stackrel{!}{=}0
 \]
 
 Daraus folgt:
@@ -302,11 +309,11 @@ Daraus folgt:
 \end{align*}
 
 Entspricht: $\frac{\texttt{Multiplikation aller PS zum gesuchten Punkt}}
-{\texttt{Multiplikation aller NS zum gesuchten Punkt}}$
+	{\texttt{Multiplikation aller NS zum gesuchten Punkt}}$
 
 \subsection{Konstruktion der WOK}
 \begin{mdframed}[style=exercise]
-	\begin{enumerate}
+	\begin{enumerate}[leftmargin=*]
 		\item Alle n Äste der WOK beginnen mit K=0 in den n Polen $s_pov$ des offenen Regelkreises.
 		\item m Äste der WOK enden für K $\rightarrow \pm \infty$
 		\item n -m Äste der WOK enden für K $\rightarrow \pm \infty$ im Unendlichen
@@ -337,8 +344,8 @@ Frequenzgangfunktion des offenen Regelkreises:
 
 Ausgangssignal:
 \begin{align*}
-    x_a(t) & =-F_r (j\omega) \cdot F_R (j\omega) \cdot F_S (j\omega) \cdot
-    x_{e0}sin(\omega t) \\
+	x_a(t) & =-F_r (j\omega) \cdot F_R (j\omega) \cdot F_S (j\omega) \cdot
+	x_{e0}sin(\omega t)                                                    \\
 	       & = -F_0 (j\omega) \cdot x_e (t)
 \end{align*}
 
@@ -348,25 +355,25 @@ Regler und seine Parameter werden so gewählt,\\ dass $\omega = \omega_{krit}$ g
 \]
 
 \begin{mdframed}[style=exercise]
-    Die Schwingbedingung ist erfüllt, wenn die Ortskurve von $F_1 (j\omega)$
-    durch den kritischen Punkt ($P_{krit} = -2+j0$) der komplexen $F_0$-Ebene
-    geht.
+	Die Schwingbedingung ist erfüllt, wenn die Ortskurve von $F_1 (j\omega)$
+	durch den kritischen Punkt ($P_{krit} = -2+j0$) der komplexen $F_0$-Ebene
+	geht.
 
-    An diesem Punkt kann man $\omega_{krit}$ ablesen (damit kann der Regelkreis
-    Dauerschwingungen ausführen).
+	An diesem Punkt kann man $\omega_{krit}$ ablesen (damit kann der Regelkreis
+	Dauerschwingungen ausführen).
 
-    Für größere $\omega$ ist das System instabil, für kleinere stabil.
+	Für größere $\omega$ ist das System instabil, für kleinere stabil.
 \end{mdframed}
 
 \includegraphics[width=0.94\columnwidth]{Figures/Nyquistwkrit.png}
 
 \begin{mdframed}[style=exercise]
-    Falls F(s) des offenen Kreises keine Pole in der rechten Halbebene hat und
-    nur max. 2 im Ursprung der s-Ebene, ist der Regelkreis stabil, wenn der
-    kritische Punkt von $\omega$ immer links von s = -1 + 0j liegt.
+	Falls F(s) des offenen Kreises keine Pole in der rechten Halbebene hat und
+	nur max. 2 im Ursprung der s-Ebene, ist der Regelkreis stabil, wenn der
+	kritische Punkt von $\omega$ immer links von s = -1 + 0j liegt.
 
-    \footnotesize
-    (gilt immer wenn der offene Kreis stabil ist)
+	\footnotesize
+	(gilt immer wenn der offene Kreis stabil ist)
 \end{mdframed}
 
 Zur Auswertung des Nyquist-Kriteriums im Bode Diagramm, spaltet man die Ortskurve nach Betrag
@@ -387,20 +394,23 @@ Falls die Bedingung nicht funktioniert, wird die allgemeine Formulierung verwend
 	$n_a$: Anzahl der Pole auf der imaginären Achse
 \end{mdframed}
 
-Phasenrad/Phasenreserve:
-\begin{align*}
-	 & \text{Aus Bodediagramm ablesen: Bei Verstärkung von 1,}                              \\
-	 & \text{Winkeln von -180° nach oben rechnen}                                           \\
-	 & \text{Für befriedigendes Verhalten bei Störungen gilt: }\varphi _R \geq \text{30°}   \\
-	 & \text{Für gutes Verhalten (überschwingungsarm) gilt: }\varphi _R \approx \text{ 60°} \\
-	 & \text{Für gutes Verhalten (überschwingungsfrei) gilt: }\varphi _R \geq \text{80°}    \\
-\end{align*}
+\subsubsection{Phasenrad/Phasenreserve:}
+
+\begin{itemize}[leftmargin=*]
+	\item[] Aus Bodediagramm ablesen: Bei Verstärkung von 1
+	\item[] Winkeln von -180° nach oben rechnen
+	\item befriedigendes Verhalten bei Störungen gilt: $\varphi _R \geq 30\circ$
+	\item gutes Verhalten (überschwingungsarm) gilt: $\varphi _R \approx  60\circ$
+	\item gutes Verhalten (überschwingungsfrei) gilt: $\varphi _R \geq 80^\circ$
+\end{itemize}
 
 \subsection{Einstellregler Ziegler/Nichols}
 \subsubsection{Maßnahmen zur Verbesserung des Regelkreisverhaltens und Erweiterungen der Regelkreisstruktur}
+
+\centering
 \includegraphics[width=0.9\columnwidth]{Figures/ZieglerNich.png}\\
 
-
+\raggedright
 \begin{mdframed}[style=exercise, frametitle=Störgrößenaufschaltung:]
 	Falls Angriffsort einer Störgröße bekannt,kann man wie im Bild kompensieren.\\
 	Vorteil: einfacher Regler Entwurf, deutlich schnellere Ausregelung.
@@ -425,6 +435,7 @@ Phasenrad/Phasenreserve:
 
 \includegraphics[width=0.9\columnwidth]{Figures/Kaskadenregelung.png}
 
+\newpage
 \section{Digitale Regler}
 \subsection{Allgemeines}
 \subsubsection{z-Transformation}
@@ -505,17 +516,37 @@ Rückwärts-Differenzen-quotient
 		\end{bmatrix}
 	\]
 
-    Eigenwerte einer Matrix bestimmen (z.B. A):\\
-    det(A - sI) $\stackrel{!}{=}$ 0
+	Eigenwerte einer Matrix bestimmen (z.B. A):
+    \[
+        \operatorname{det}(A - sI) \overset{!}{=} 0
+    \]
 \end{mdframed}
 
-Polfestlegung durch vollständige Zustandsrückführung
+\subsubsection{Polfestlegung durch vollständige Zustandsrückführung}
 
-\includegraphics[width=0.9\columnwidth]{Figures/Polfestlegung.png}
+\centering
+\includegraphics[width=0.8\columnwidth]{Figures/Polfestlegung.png}
 
-Durch die freie Wahl von K können alle n Pole des Systems beliebig platziert werden.\\
-Rückführungsverstärkung: von jedem X einen Pfad zur größten Ableitung mit Verstärkung K zeichnen.
-Über neue Matrix und deren determinante kann dann die Reglerverstärkung bestimmt werden.
+\raggedright
+Durch die freie Wahl von K können alle n Pole des Systems beliebig platziert
+werden.
+
+Rückführungsverstärkung: von jedem X einen Pfad zur größten Ableitung
+mit Verstärkung K zeichnen. Über neue Matrix und deren determinante kann dann
+die Reglerverstärkung bestimmt werden.
+
+\begin{mdframed}
+\[
+	A = \begin{bmatrix}
+		B(a-K)
+    \end{bmatrix}
+\]
+\begin{center}
+    \footnotesize a ist vorfaktor der $\vec{x}(t)$, siehe oben.
+\end{center}
+\end{mdframed}
+
+dann mit der Determinante der Matrix A: K bestimmen mit den gegebenen Polen
 
 \subsection{Programmtechnische Umsetzung}
 Zähler und Nenner der z-Übertragungsfunktion durch die höchste Potenz teilen
@@ -523,7 +554,7 @@ Zähler und Nenner der z-Übertragungsfunktion durch die höchste Potenz teilen
 \begin{lstlisting}[language=Matlab]
   while(1)
   {
-      waitinterrupt(); //Abtastzeit warten
+      waitinterrupt(T_A); //Abtastzeit warten
       xout2 = xout1;
       xout1 = xout;
       xin2 = xin1;
