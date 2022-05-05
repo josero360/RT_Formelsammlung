@@ -38,8 +38,7 @@ Grundstruktur des einschleifigen Regelkreises:
 \begin{align*}
 	F_w (s) & = F_R (s) \cdot F_S (s) \cdot F_r (s)
 	\\ & =K \cdot F_R '(s) \cdot F_S (s) \cdot F_r (s)
-	\\ & =K \cdot Q \cdot \frac{\prod_{u=1}^{m}\left(s-s_{\text {Nou
-			}}\right)}{\prod_{v=1}^{n}\left(s-s_{\text {pov }}\right)}
+	\\ & =K \cdot Q \cdot \frac{\prod_{u=1}^{m}\left(s-s_{\text {Nou}}\right)}{\prod_{v=1}^{n}\left(s-s_{\text {pov }}\right)}
 \end{align*}
 
 Für eine Polstele, muss der Nenner von $F_w (s)$ Null werden:
@@ -64,12 +63,13 @@ Entspricht: $\frac{\texttt{Multiplikation aller PS zum gesuchten Punkt}}
 		\item n -m Äste der WOK enden für K $\rightarrow \pm \infty$ im Unendlichen
 		\item Die n-m ins Unendliche strebende Äste der WOK haben Asymptoten,die\\
 		      a) im Wurzelschwerpunkt
-		      \[S_{w}=\frac{\sum_{v=1}^{n} s_{pov}-\sum_{u=1}^{m} s_{_{Nop}}}{n-m}\]
+		      \[S_{w}=\frac{\sum_{v=1}^{n} s_{pov}-\sum_{u=1}^{m} s_{_{Nop}}}{n-m} 
+                        = \dfrac{\textnormal{Polst.}- \textnormal{Nullst.}}{\textnormal{Polst. Überschuss}}\]
 		      beginnen und die dabei\\
 		      b) mit der reellen Achse die Winkel\\
-		      $\varphi_{k}=\frac{(2 k-1) \cdot 180^{\circ}}{n-m}$ für KQ > 0 bzw.\\
+		      $\varphi_{k}=\frac{(2 k-1) \cdot 180^{\circ}}{n-m}$ für KQ > 0\\
 		      mit k = 1,2,3,\dots,n-m
-		\item Die Punkte der WOk liegen entweder auf der reelen Achse, oder symmetrisch zur reelen Achse
+		\item Die Punkte liegen auf der reellen Achse, oder symmetrisch zur reellen Achse
 		\item Ein Punkt s auf der reellen Achse ist dann ein Punkt der WOK, wenn sich bei KQ > 0 (KQ<0)
 		      rechts von ihm eine ungerade (gerade) Anzahl von Polen $s_{pov}$ und (+) Nullstellen $s_{Nov}$ befindet.
 	\end{enumerate}
