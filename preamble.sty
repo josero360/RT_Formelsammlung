@@ -1,0 +1,66 @@
+\ProvidesPackage{preamble}
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{physics}
+\usepackage[left=2cm,right=1cm,top=2cm,bottom=1.5cm,twoside]{geometry}
+\usepackage{siunitx}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{mhchem}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\graphicspath{./Figures}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage{csquotes}
+\usepackage{trfsigns}
+\usepackage{capt-of}
+\usepackage{listings}
+\setlength{\headheight}{23pt}
+\setlength{\headsep}{10pt}
+\setlength{\marginparwidth}{0pt}
+% \setlength{\parindent}{0pt}
+\usepackage{enumitem}
+
+\sisetup{locale=DE}
+\sisetup{per-mode = symbol-or-fraction}
+\sisetup{separate-uncertainty=true}
+\DeclareSIUnit\year{a}
+\DeclareSIUnit\clight{c}
+\mdfdefinestyle{exercise}{
+	backgroundcolor=black!10,roundcorner=8pt,hidealllines=true,nobreak
+}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.95}
+\renewcommand{\lstlistingname}{Code}% Listing -> Algorithm
+\renewcommand{\lstlistlistingname}{List of \lstlistingname s}% List of Listings -> List of Algorithms
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=3pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=3
+}
+\lstset{style=mystyle}

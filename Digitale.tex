@@ -1,0 +1,32 @@
+\section{Digitale Regler}
+\subsection{Allgemeines}
+\subsubsection{z-Transformation}
+
+Wert der bei t = k $\cdot T_A$ ausgegeben wird, wird bei t = (k-1) $\cdot T_A$
+eingelesen. (Verzögerung um einen Abtastschritt):
+
+\includegraphics[width=0.9\columnwidth]{Figures/zTrans.png}
+
+Bei der z-Transformation entspricht $e^{-s \cdot TA}$ der
+Laplace-Transformation dem Ausdruck $z^{-1}$. Bzw. z $\hat{=}$ $e^{s \cdot
+			TA}$\\ Transformation vom s-Bereich in den z-Bereich:
+\[
+	s \ \hat{=}\  e^{s \cdot TA}
+\]
+
+Vorwärts-Differenzen-quotient
+\[
+	s \ \hat{=} \ \frac{z-1}{T_A}
+\]
+
+$\Rightarrow$ Der digitale Regler kann folgend berechnet werden:
+\[
+	F(z) = F(z)|_{s= \frac {z-1}{T_A}}
+\]
+
+Tustinsche Formel
+\[
+	s \ \hat{=} \ \frac{2}{T_A} \cdot \frac{z-1}{z+1}
+\]
+
+Rückwärts-Differenzen-quotient
