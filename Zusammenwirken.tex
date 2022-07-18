@@ -38,7 +38,7 @@ Grundstruktur des einschleifigen Regelkreises:
 \begin{align*}
 	F_w (s) & = F_R (s) \cdot F_S (s) \cdot F_r (s)
 	\\ & =K \cdot F_R '(s) \cdot F_S (s) \cdot F_r (s)
-	\\ & =K \cdot Q \cdot \frac{\prod_{u=1}^{m}\left(s-s_{\text {Nou}}\right)}{\prod_{v=1}^{n}\left(s-s_{\text {pov }}\right)}
+	\\ & =K \cdot Q \cdot \frac{\prod_{u=1}^{m}\left(s-s_{\text {N}}\right)}{\prod_{v=1}^{n}\left(s-s_{\text {P }}\right)}
 \end{align*}
 
 Für eine Polstele, muss der Nenner von $F_w (s)$ Null werden:
@@ -48,14 +48,17 @@ Für eine Polstele, muss der Nenner von $F_w (s)$ Null werden:
 
 Daraus folgt:
 \begin{align*}
-	 & \Rightarrow 1+ K \cdot Q \cdot \frac{\prod_{M=1}^{m}\left(s-s_{\text {Nou }}\right)}{\prod_{v=1}^{n}\left(s-s_{\text {por }}\right)}         \\
-	 & \Rightarrow \frac{\prod_{v=1}^{n}\left(s-s_{\text {pov }}\right)}{\prod_{u=1}^{m}\left(s-s_{\text {Nou }}\right)} \stackrel{!}{=} -K \cdot Q
+	 & \Rightarrow 1+ K \cdot Q \cdot \frac{\prod_{M=1}^{m}\left(s-s_{\text {N }}\right)}{\prod_{v=1}^{n}\left(s-s_{\text {P }}\right)}         \\
+	 & \Rightarrow \frac{\prod_{v=1}^{n}\left(s-s_{\text {P }}\right)}{\prod_{u=1}^{m}\left(s-s_{\text {N }}\right)} \stackrel{!}{=} -K \cdot Q
 \end{align*}
 
-Entspricht: $\frac{\texttt{Multiplikation aller PS zum gesuchten Punkt}}
-	{\texttt{Multiplikation aller NS zum gesuchten Punkt}}$
+K kritisch
+\[ K_{krit} = |K| \cdot \dfrac{\prod |s_{P}|}{\prod |s_{N}|}\]
 
 \subsection{Konstruktion der WOK}
+
+\[ ax^2+bx+c \qquad z_{1,2} = \dfrac{-b \pm \sqrt{b^2 -4ac}}{2a}\]
+
 \begin{mdframed}[style=exercise]
 	\begin{enumerate}[leftmargin=*]
 		\item Alle n Äste beginnen in den n POLEN $s_pov$
@@ -63,14 +66,15 @@ Entspricht: $\frac{\texttt{Multiplikation aller PS zum gesuchten Punkt}}
 		\item n -m Äste der WOK enden für K $\rightarrow \pm \infty$ im Unendlichen
 		\item Die n-m ins Unendliche strebende Äste der WOK haben Asymptoten,die\\
 		      a) im Wurzelschwerpunkt
-		      \[S_{w}=\frac{\sum_{v=1}^{n} s_{pov}-\sum_{u=1}^{m} s_{_{Nop}}}{n-m} 
+		      \[S_{w}=\frac{\sum_{v=1}^{n} s_{P}-\sum_{u=1}^{m} s_{_{N}}}{n-m} 
                         = \dfrac{\textnormal{Polst.}- \textnormal{Nullst.}}{\textnormal{Polst. Überschuss}}\]
 		      b) mit der reellen Achse die Winkel\\
+			  Polst. Überschuss 1 $\Rightarrow 180^{\circ}$, 2 $\Rightarrow 90/270^{\circ}$\\
 		      $\varphi_{k}=\frac{(2 k-1) \cdot 180^{\circ}}{n-m}$ für KQ > 0\\
 		      k = 1,2,3,\dots,n-m
 		\item Die Punkte liegen auf der reellen Achse, oder symmetrisch zur reellen Achse
 		\item Ein Punkt s auf der reellen Achse ist dann ein Punkt der WOK, wenn sich bei KQ > 0 (KQ<0)
-		      rechts von ihm eine ungerade (gerade) Anzahl von Polen $s_{pov}$ und (+) Nullstellen $s_{Nov}$ befindet.
+		      rechts von ihm eine ungerade (gerade) Anzahl von Polen $s_{P}$ und (+) Nullstellen $s_{N}$ befindet.
 	\end{enumerate}
 
 	Achtung: WOK nicht anwendbar, wenn Übertragungsfunktionen nicht rationale (z.B. Regelkreis mit Totzeitverhalten!)
@@ -148,14 +152,24 @@ Falls die Bedingung nicht funktioniert, wird die allgemeine Formulierung verwend
 \end{itemize}
 
 \subsection{Einstellregler Ziegler/Nichols}
-\subsubsection{Maßnahmen zur Verbesserung des Regelkreisverhaltens und Erweiterungen der Regelkreisstruktur}
+{\centering
+\includegraphics[width=0.9\columnwidth]{Figures/ZieglerNich.png}}
 
-\centering
-\includegraphics[width=0.9\columnwidth]{Figures/ZieglerNich.png}\\
+\subsubsection{Betragsoptimum}
+bei einer dominierenden  Zeitkonstante ($T_d$) in der Regelstrecke
+\[
+	F_{PI} = K_R \left(1 + \dfrac{1}{T_d \cdot s}\right) \qquad K_R =\dfrac{T_d}{2 \cdot K_{Strecke} \cdot T_{\sum}}
+\]
+
+\subsubsection{Symmetrisches Optimum}
+mehreren Zeitkonstanten (nur reelle Pole)
+\[
+	F_{PI} = K_R \left(1 + \dfrac{1}{4T_{\sum} \cdot s}\right) \qquad K_R =\dfrac{1}{2 \cdot K_{Strecke} \cdot T_{\sum}}
+\]
 
 \raggedright
 \begin{mdframed}[style=exercise, frametitle=Störgrößenaufschaltung:]
-	Falls Angriffsort einer Störgröße bekannt,kann man wie im Bild kompensieren.\\
+	Falls Angriffsort einer Störgröße bekannt,kann man wie im Bild kompensieren.
 	Vorteil: einfacher Regler Entwurf, deutlich schnellere Ausregelung.
 \end{mdframed}
 
@@ -163,7 +177,7 @@ Falls die Bedingung nicht funktioniert, wird die allgemeine Formulierung verwend
 
 
 \begin{mdframed}[style=exercise, frametitle=Vorsteuerung:]
-	Geeignet, falls kein Kompromiss für gutes Stör und Folgeverhalten.\\
+	Geeignet, falls kein Kompromiss für gutes Stör und Folgeverhalten.
 	Regler ist auf gutes Störverhalten ausgelegt. Mit $F_{Rv}$ wird ein schnelles Folgen
 	auf Führungssignale w(t) erreicht.
 \end{mdframed}
