@@ -1,3 +1,4 @@
+\newpage
 \section{Systembeschreibung im Zustandsraum}
 \subsection{Allgemein (Mehrgrößensystem MIMO) }
 \begin{mdframed}[style=exercise]
@@ -31,7 +32,7 @@
 			0 & 0 & 0
 		\end{bmatrix}
 		C = \begin{bmatrix}
-			0 & 1 & 0 \\
+			0 & 1 & 0 \\ 
 			0 & 0 & l \\
 		\end{bmatrix}\]
 	\[B = \begin{bmatrix}
@@ -45,40 +46,47 @@
 		\end{bmatrix}
 	\]
 
-	Eigenwerte einer Matrix bestimmen (z.B. A):
+	Polstellen (Eigenwerte einer Matrix bestimmen):
     \[
-        \operatorname{det}(A - sI) \overset{!}{=} 0
+        \operatorname{det}(A - sE)= det
+		\begin{bmatrix}
+			a & b \\
+			c & d \\
+		\end{bmatrix} = ab - cd \overset{!}{=} 0 \quad sE =\begin{bmatrix}
+			s & 0 \\
+			0 & s
+		\end{bmatrix}
     \]
 \end{mdframed}
 
-\subsubsection{Polfestlegung durch vollständige Zustandsrückführung}
+% \subsubsection{Polfestlegung durch vollständige Zustandsrückführung}
 
-\centering
-\includegraphics[width=0.8\columnwidth]{Figures/Polfestlegung.png}
+% \centering
+% \includegraphics[width=0.8\columnwidth]{Figures/Polfestlegung.png}
 
-\raggedright
-Durch die freie Wahl von K können alle n Pole des Systems beliebig platziert
-werden.
+% \raggedright
+% Durch die freie Wahl von K können alle n Pole des Systems beliebig platziert
+% werden.
 
-Rückführungsverstärkung: von jedem X einen Pfad zur größten Ableitung
-mit Verstärkung K zeichnen. Über neue Matrix und deren determinante kann dann
-die Reglerverstärkung bestimmt werden.
+% Rückführungsverstärkung: von jedem X einen Pfad zur größten Ableitung
+% mit Verstärkung K zeichnen. Über neue Matrix und deren determinante kann dann
+% die Reglerverstärkung bestimmt werden.
 
-\begin{mdframed}
-\[
-	A = \begin{bmatrix}
-		B(a-K)
-    \end{bmatrix}
-\]
-\begin{center}
-    \footnotesize a ist vorfaktor der $\vec{x}(t)$, siehe oben.
-\end{center}
-\end{mdframed}
+% \begin{mdframed}
+% \[
+% 	A = \begin{bmatrix}
+% 		B(a-K)
+%     \end{bmatrix}
+% \]
+% \begin{center}
+%     \footnotesize a ist vorfaktor der $\vec{x}(t)$, siehe oben.
+% \end{center}
+% \end{mdframed}
 
-dann mit der Determinante der Matrix A: K bestimmen mit den gegebenen Polen
+% dann mit der Determinante der Matrix A: K bestimmen mit den gegebenen Polen
 
 \subsection{Programmtechnische Umsetzung}
-Zähler und Nenner der z-Übertragungsfunktion durch die höchste Potenz teilen
+\[F_z(z) = \frac{2z+6}{3z+4} = \frac{2xin+6xin}{3xout+4xout1}\]
 
 \begin{lstlisting}[language=Matlab]
   while(1)
@@ -90,6 +98,6 @@ Zähler und Nenner der z-Übertragungsfunktion durch die höchste Potenz teilen
       xin1 = xin;
       input(xin);
       xout = k*xout2 - j*xin1 + o*xout1;
-      output(xa);
+      output(xout);
   }
 \end{lstlisting}
