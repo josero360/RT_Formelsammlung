@@ -41,15 +41,27 @@ Signalflussplan kann allgemein gezeichnet werden: (nötig, falls eine Ableitung 
 
 \includegraphics[width=0.9\columnwidth]{Figures/SFmitDGL.png}
 
-\subsection{Stabilität}
-\begin{mdframed}[style=exercise]
-	BIBO-Stabilität (Bounded Input/ Bounded Output-> begrenzt):
-	für ein begrenztes $x_e$ gibt es immer ein begrenztes $x_a$
-\end{mdframed}
+% \subsection{Stabilität}
+% \begin{mdframed}[style=exercise]
+% 	BIBO-Stabilität (Bounded Input/ Bounded Output-> begrenzt):
+% 	für ein begrenztes $x_e$ gibt es immer ein begrenztes $x_a$
+% \end{mdframed}
 
+\subsection{Zusammenhang DGL, Frequenzgang, Übertragungsfkt.}
+\begin{align*}
+	F_e &= m \ddot{x} + k_D \dot{x} + k_F x \\
+	F(j \omega) = \frac{\Sigma x_e}{\Sigma x_a} & \qquad j^2 = -1\\
+	F(j \omega) &= \frac{1}{m(j \omega)^2+k_D j \omega+k_F} \\
+				&= \frac{1}{-m \omega^2+h_D \omega+h_F} \\
+	\text{konj. komp. erweitert}			&= \frac{\left(k_F-m \omega^2\right)-k_D j \omega}{\left(k_F-m \omega^2\right)^2-(-1)\left(k_D \omega\right)^2} \\
+				&= \frac{\left(k_F-m \omega^2\right)-k_{D j} \omega}{\left(k_F-m \omega^2\right)^2+\left(k_D \omega\right)^2} \\
+	F(s)		&= \frac{1}{m s^2+k_D s+h_F}
+\end{align*}
 
+\newpage
 \subsection{Ortskurven und Frequenzkennlinien}
-Ortskurvendarstellung:
+Ortskurvendarstellung:\\ 
+(In Darstellung $F(j \omega) = a + jb$ eintragen)
 \begin{center}
 	\includegraphics[width=0.96\columnwidth]{Figures/Ortskurve.png}
 \end{center}
@@ -59,8 +71,8 @@ Ortskurvendarstellung:
 % 	Ortskurvenpunkt kann jetzt als Zeiger gedeutet werden.
 % \end{mdframed}
 
-\newpage
-Bodediagramm Darstellung:
+Bodediagramm Darstellung:\\ 
+(In Darstellung $F(j \omega) = Arg \measuredangle \varphi$ eintragen)
 \begin{center}
 	\includegraphics[width=0.96\columnwidth]{Figures/Bodediagramm.png}
 \end{center}
@@ -93,16 +105,14 @@ Bodediagramm Darstellung:
 
 \[
 	F(s)=Q \cdot \frac{\prod_{\mu=1}^{m}\left(s-s_{N \mu}\right)}{\prod_{v=1}^{n}\left(s-s_{P V}\right)}
-	\qquad \texttt{mit } Q = \frac{b_m}{a_n}
+	\qquad {mit \;} Q = \frac{b_m}{a_n}
 \]
 
 \begin{mdframed}[style=exercise]
 	% Die Stabilität von $F(s)$ kann anhand der Lage der Pole $s_pv$ in der s-Ebene beurteilt werden.\\ 
-	stabil, wenn alle Pole $s_pv$ in der linken
+	stabil, wenn alle Pole $s_{PV}$ in der linken
 	s-Halbebene liegen.\\ Instabile Pole
-	NICHT durch Reihenschaltung mit Nullstelle kompensieren!
-\end{mdframed}
-\begin{mdframed}[style=exercise]
+	NICHT durch Reihenschaltung mit Nullstelle kompensieren!\\
 	Bedeutung Polstelle:\\
 	Je weiter links $\Rightarrow$ schnellerer Einschwingvorgang.\\
 	$\Rightarrow$ Pole weiter links können vernachlässigt werden.
@@ -116,14 +126,10 @@ Bodediagramm Darstellung:
 \subsection{Signalflussplan Algebra}
 \begin{itemize}[leftmargin=*]
 	\item Kettenstruktur:
-	      \begin{center}
-		      \includegraphics[width=0.96\columnwidth]{Figures/Kettenstruktur.png}
-	      \end{center}
+	    \[F_{ges}(s) = F_1(s) \cdot F_2(s)\]
 
 	\item Parallelstruktur:
-	      \begin{center}
-		      \includegraphics[width=0.96\columnwidth]{Figures/Parallelstruktur.png}
-	      \end{center}
+		\[F_{ges}(s) = F_1(s) + F_2(s)\]
 
 	\item Kreisstruktur:
 	      \begin{center}
