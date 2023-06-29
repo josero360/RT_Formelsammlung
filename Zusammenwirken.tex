@@ -1,23 +1,49 @@
 \section{Zusammenwirken mehrerer Systeme}
-\subsection{Regelkreis}
-\begin{mdframed}[style=exercise,frametitle=Anforderungen:]
-	\begin{itemize}[leftmargin=*]
-		\item Stabilität: Regelkreis muss stabiles Verhalten zeigen (gilt
-		      auch für instabile Systeme)
-		\item Gutes Führungsverhalten: Die Differenz zw. Sollwert w(t) und
-		      Istwert x(t) muss schnell klein werden.
-		\item Gutes Störverhalten: Einfluss von Störgrößen soll vermindert
-		      werden.
-	\end{itemize}
-\end{mdframed}
 
-Grundstruktur des einschleifigen Regelkreises:
+\subsection{Signalflussplan Algebra}
+\begin{itemize}[leftmargin=*]
+	\item Kettenstruktur:
+	    \[F_{ges}(s) = F_1(s) \cdot F_2(s)\]
 
-\includegraphics[width=0.9\columnwidth]{Figures/einschleifiger Regelkreis.png}
+	\item Parallelstruktur:
+		\[F_{ges}(s) = F_1(s) + F_2(s)\]
 
+	\item Kreisstruktur:
+	      \begin{center}
+		      \includegraphics[width=0.96\columnwidth]{Figures/Kreisstruktur.png}
+	      \end{center}
+
+	\item Verschieben einer Additionsstelle:
+	      \begin{center}
+		      \includegraphics[width=0.9\columnwidth]{Figures/Verschiebung einer Additionsstelel.png}
+	      \end{center}
+
+	\item Verschieben einer Verzweigung:
+	      \begin{center}
+		      \includegraphics[width=0.9\columnwidth]{Figures/Verschiebung einer Verzweigung.png}
+	      \end{center}
+\end{itemize}
+
+% \subsection{Regelkreis}
+% \begin{mdframed}[style=exercise,frametitle=Anforderungen:]
+% 	\begin{itemize}[leftmargin=*]
+% 		\item Stabilität: Regelkreis muss stabiles Verhalten zeigen (gilt
+% 		      auch für instabile Systeme)
+% 		\item Gutes Führungsverhalten: Die Differenz zw. Sollwert w(t) und
+% 		      Istwert x(t) muss schnell klein werden.
+% 		\item Gutes Störverhalten: Einfluss von Störgrößen soll vermindert
+% 		      werden.
+% 	\end{itemize}
+% \end{mdframed}
+
+% Grundstruktur des einschleifigen Regelkreises:
+
+% \includegraphics[width=0.9\columnwidth]{Figures/einschleifiger Regelkreis.png}
+
+\subsection{Regeldifferenz}
 \includegraphics[width=0.98\columnwidth]{Figures/Reglerauswahl.png}
 
-
+\newpage
 \subsection{Wurzelortskurven (WOK)-Verfahren}
 
 \includegraphics[width=0.94\columnwidth]{Figures/WOKkreis.png}

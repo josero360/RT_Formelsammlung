@@ -1,13 +1,19 @@
 \begin{tikzpicture}
+    \fill [yellow] (0,3.8) rectangle (3.8,-4);
     \draw[-latex](0,-4)--(0,4) node[right]{$Im$};
     \draw[-latex](-4,0)--(4,0) node[right]{$Re$};
-    \node[above] at (-2,3.5) {stabil};
-    \node[above] at (2,3.5) {instabil};
-
+    \node[above] at (-2,3.2) {stabil};
+    \node[above] at (2,3.2) {instabil};
+    
     \draw[solid](0,0)--(-4,1);
     \draw[solid](0,0)--(-4,-1);
 
     \draw[-latex] (-2.5,0) arc(180:270:2.5) node[midway]{oszilierend/Einschwingen}; 
-    \node[below] at (-2.5,0) {gering};
-    \node[left] at (0,-3) {stark};
+    \node[below] at (-2.5,0) {gering/kurz};
+    \node[left] at (0,-3) {stark/lange};
+
+    \draw[->, thick](2,0)--(-2,0) node[]{$\bigcirc$};
+    \node[] at (2,0) {$\times$};
+    \node[above] at (-2,0) {$K_R \rightarrow \infty$};
+    \node[above] at (2,0) {$K_R = 0$};
 \end{tikzpicture}

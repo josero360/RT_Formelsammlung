@@ -63,7 +63,7 @@ Signalflussplan kann allgemein gezeichnet werden: (nötig, falls eine Ableitung 
 Ortskurvendarstellung:\\ 
 (In Darstellung $F(j \omega) = a + jb$ eintragen)
 \begin{center}
-	\includegraphics[width=0.96\columnwidth]{Figures/Ortskurve.png}
+	\includegraphics[width=0.86\columnwidth]{Figures/Ortskurve.png}
 \end{center}
 % \begin{mdframed}[style=exercise]
 % 	Für wachsendes $\omega$ werden die komplexen Werte F(j$\omega$) in die
@@ -72,9 +72,9 @@ Ortskurvendarstellung:\\
 % \end{mdframed}
 
 Bodediagramm Darstellung:\\ 
-(In Darstellung $F(j \omega) = Arg \measuredangle \varphi$ eintragen)
+(In Darstellung $F(j \omega) = A(rg) \measuredangle \varphi$ eintragen)
 \begin{center}
-	\includegraphics[width=0.96\columnwidth]{Figures/Bodediagramm.png}
+	\includegraphics[width=0.86\columnwidth]{Figures/Bodediagramm.png}
 \end{center}
 \begin{mdframed}[style=exercise]
 	% Der Amplitudengang A($\omega$) wird in doppelt logarithmischer Darstellung
@@ -93,7 +93,7 @@ Bodediagramm Darstellung:\\
 	heißt: Sowohl Phasengang und Amplitudengang werden graphisch addiert!
 \end{mdframed}
 
-\subsection{$\mathbf{F(s)}$ in Pol- und Nullstellenform}
+% \subsection{$\mathbf{F(s)}$ in Pol- und Nullstellenform}
 % \begin{mdframed}[style=exercise]
 % 	Zähler- und Nennerpolynom von F(s) besitzt Nullstellen. Diese sind von
 % 	$a_v$ und $b_u$ abhängig.\\
@@ -103,46 +103,22 @@ Bodediagramm Darstellung:\\
 % 	Faktor Q in faktorisierter Form darstellen.
 % \end{mdframed}
 
-\[
-	F(s)=Q \cdot \frac{\prod_{\mu=1}^{m}\left(s-s_{N \mu}\right)}{\prod_{v=1}^{n}\left(s-s_{P V}\right)}
-	\qquad {mit \;} Q = \frac{b_m}{a_n}
-\]
+% \[
+% 	F(s)=Q \cdot \frac{\prod_{\mu=1}^{m}\left(s-s_{N \mu}\right)}{\prod_{v=1}^{n}\left(s-s_{P V}\right)}
+% 	\qquad {mit \;} Q = \frac{b_m}{a_n}
+% \]
 
-\begin{mdframed}[style=exercise]
-	% Die Stabilität von $F(s)$ kann anhand der Lage der Pole $s_pv$ in der s-Ebene beurteilt werden.\\ 
-	stabil, wenn alle Pole $s_{PV}$ in der linken
-	s-Halbebene liegen.\\ Instabile Pole
-	NICHT durch Reihenschaltung mit Nullstelle kompensieren!\\
-	Bedeutung Polstelle:\\
-	Je weiter links $\Rightarrow$ schnellerer Einschwingvorgang.\\
-	$\Rightarrow$ Pole weiter links können vernachlässigt werden.
-\end{mdframed}
-\begin{mdframed}[style=exercise]
-	Bedeutung Nullstelle:\\
-	bewirken differenzierendes Verhalten (Beschleunigung des Systems)
-	$\Rightarrow$ NS weiter links können vernachlässigt werden.
-\end{mdframed}
-
-\subsection{Signalflussplan Algebra}
-\begin{itemize}[leftmargin=*]
-	\item Kettenstruktur:
-	    \[F_{ges}(s) = F_1(s) \cdot F_2(s)\]
-
-	\item Parallelstruktur:
-		\[F_{ges}(s) = F_1(s) + F_2(s)\]
-
-	\item Kreisstruktur:
-	      \begin{center}
-		      \includegraphics[width=0.96\columnwidth]{Figures/Kreisstruktur.png}
-	      \end{center}
-
-	\item Verschieben einer Additionsstelle:
-	      \begin{center}
-		      \includegraphics[width=0.9\columnwidth]{Figures/Verschiebung einer Additionsstelel.png}
-	      \end{center}
-
-	\item Verschieben einer Verzweigung:
-	      \begin{center}
-		      \includegraphics[width=0.9\columnwidth]{Figures/Verschiebung einer Verzweigung.png}
-	      \end{center}
-\end{itemize}
+% \begin{mdframed}[style=exercise]
+% 	Die Stabilität von $F(s)$ kann anhand der Lage der Pole $s_pv$ in der s-Ebene beurteilt werden.\\ 
+% 	stabil, wenn alle Pole $s_{PV}$ in der linken
+% 	s-Halbebene liegen.\\ Instabile Pole
+% 	NICHT durch Reihenschaltung mit Nullstelle kompensieren!\\
+% 	Bedeutung Polstelle:\\
+% 	Je weiter links $\Rightarrow$ schnellerer Einschwingvorgang.\\
+% 	$\Rightarrow$ Pole weiter links können vernachlässigt werden.
+% \end{mdframed}
+% \begin{mdframed}[style=exercise]
+% 	Bedeutung Nullstelle:\\
+% 	bewirken differenzierendes Verhalten (Beschleunigung des Systems)
+% 	$\Rightarrow$ NS weiter links können vernachlässigt werden.
+% \end{mdframed}
