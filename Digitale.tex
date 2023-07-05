@@ -1,6 +1,5 @@
 \section{Digitale Regler}
-\subsection{Allgemeines}
-\subsubsection{z-Transformation}
+\subsection{z-Transformation}
 
 Wert der bei t = k $\cdot T_A$ ausgegeben wird, wird bei t = (k-1) $\cdot T_A$
 eingelesen. (Verzögerung um einen Abtastschritt):
@@ -24,12 +23,12 @@ $\Rightarrow$ Der digitale Regler kann folgend berechnet werden:
 	F(z) = F(z)|_{s= \frac {z-1}{T_A}}
 \]
 
-Tustinsche Formel
+\subsection{Tustinsche Formel}
 \[
 	s \ \hat{=} \ \frac{2}{T_A} \cdot \frac{z-1}{z+1}
 \]
 
-\paragraph{Sinnvolle Abtastzeit}
+\subsection{Sinnvolle Abtastzeit}
 kleinste Polstelle $S_P \Rightarrow T_P = \frac{1}{S_P}$
 \[
 	T_{\textnormal{sinnvoll}} = T_P \cdot \left(\frac{1}{10} \dots \frac{1}{20}\right)
