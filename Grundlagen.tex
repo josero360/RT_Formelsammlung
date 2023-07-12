@@ -5,6 +5,11 @@ Linearisierung um Arbeitspunkt:
 	f(x) &= y_0 + k \cdot (x - x_0) = y_0 + \left(\frac{y_2 - y_1}{x_2 - x_1}\right) \cdot (x - x_0)
 \end{align*}
 
+\begin{mdframed}[style=exercise]
+	Anfangswertsatz: $x(t \rightarrow +0)=\lim _{s \rightarrow \infty} s \cdot X(s)$\\
+	Endwertsatz: $x(t \rightarrow \infty)=\lim _{s \rightarrow 0} s \cdot X(s)$
+\end{mdframed}
+
 Kräftegleichungen:
 \begin{mdframed}[style=exercise]
 	Federkraft: $F_F$ = $k_F \cdot x$\\
@@ -12,6 +17,7 @@ Kräftegleichungen:
 	Trägheitskraft: $F_{Tr}$ = $m\cdot a$ = $m\cdot \ddot{x}$\\
 	Erdanziehungskraft: $F_G$ = $m\cdot g$
 \end{mdframed}
+
 Momentgleichungen:
 \begin{mdframed}[style=exercise]
 	Widerstandsmoment: $M_w$ = $k_D \cdot \omega$\\
@@ -19,16 +25,14 @@ Momentgleichungen:
 \end{mdframed}
 
 Spannungsgleichung:
-\[
-	U = L\cdot \frac{di}{dt}+i\cdot R+\frac{1}{C} \cdot \int i
-\]
+\begin{align*}
+	U &= L\cdot \frac{di}{dt}+i\cdot R+\frac{1}{C} \cdot \int i	\\
+	U &= L \cdot \dot{I} \\
+	I &= C \cdot \dot{U} \\
+\end{align*}
 
-Rotation in Flüssigkeit:
-\[
-	M=M_{\texttt{Träg}}+M_{\texttt{Brems}}= J \cdot \dot{\omega} +k_{\texttt{Flüssigkeit}} \cdot \omega
-\]
-
-Für kleine $\alpha$: sin($\alpha$) = $\alpha$\\
-% Partialbruchzerlegung (siehe Papula s.157ff)\\
-Anfangswertsatz: $x(t \rightarrow +0)=\lim _{s \rightarrow \infty} s \cdot X(s)$\\
-Endwertsatz: $x(t \rightarrow \infty)=\lim _{s \rightarrow 0} s \cdot X(s)$
+Beispiel:
+\begin{align*}
+	M = M_{TR}+M_w &= J \cdot \dot{\omega} +k_D \cdot \omega \\
+	\dot{\omega} &= \frac{M - k_D \cdot \omega}{J}
+\end{align*}
